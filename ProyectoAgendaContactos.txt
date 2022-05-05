@@ -1,0 +1,81 @@
+===== Siguiente cosa a hacer =====
+    boton añadir contacto 
+    editar que aficion/correo/telefono le pertenece a cada contacto
+    eliminar contacto
+    eliminar aficion/correo/contacto
+
+
+--- CONTACTOS ---
+-Personas: ID, Nombre, Direccion, Notas, Aficiones, Correo, Telefono, TipoTel, FechaNac, Apellidos, Genero
+-Empresas: ID, Nombre, Direccion, Notas, Aficiones, Correo, Telefono, TipoTel
+-Mascotas: ID, Nombre, Direccion, Notas, Aficiones, FechaNac
+
+Varias  por contacto: correo, telefono, aficiones
+
+
+
+
+
+
+
+--- TABLAS ---
+
+Contactos (IDcontacto, TipoContacto, Nombre, Direccion, Notas, Apellidos, Genero, FechaNac)
+Correos (IDcorreo, Correo)
+Telefonos (IDtelefono, Telefono, Prefijo, TipoTel)
+Aficiones (IDaficion, Aficion)
+
+ContactosAficiones (IDcontacto, IDaficion)
+ContactosCorreos (IDcontacto, IDcorreo)
+ContactosTelefonos (IDcontacto, IDtelefono)
+
+SELECT correo FROM correos WHERE IDcorreo = (SELECT IDcorreo FROM ContactosCorreos WHERE IDcontacto = )
+
+
+
+--- SENTENCIAS SQL ---
+
+
+CREATE TABLE CONTACTOS(
+IDCONTACTO INTEGER PRIMARY KEY AUTOINCREMENT, 
+TIPOCONTACTO CHAR(1),
+NOMBRE VARCHAR (20),
+DIRECCION VARCHAR (40),
+NOTAS VARCHAR (50),
+APELLIDOS VARCHAR (40),
+GENERO CHAR(1),
+FECHANAC CHAR(10));
+CREATE TABLE CORREOS( IDCORREO INTEGER PRIMARY KEY AUTOINCREMENT, CORREO VARCHAR(40));
+CREATE TABLE TELEFONOS (IDTELEFONO INTEGER PRIMARY KEY AUTOINCREMENT, TELEFONO NUMBER(10), PREFIJO NUMBER(2), TIPOTEL CHAR(1));
+CREATE TABLE AFICIONES (IDAFICION INTEGER PRIMARY KEY AUTOINCREMENT, AFICION VARCHAR(20));
+CREATE TABLE CONTACTOSAFICIONES (IDCONTACTO NUMBER(4),
+IDAFICION NUMBER(4), 
+FOREIGN KEY(IDCONTACTO) REFERENCES CONTACTOS(IDCONTACTO),
+FOREIGN KEY(IDAFICION) REFERENCES AFICION(IDAFICION));
+CREATE TABLE CONTACTOSCORREOS (IDCONTACTO NUMBER(4),
+IDCORREO NUMBER(4), 
+FOREIGN KEY(IDCONTACTO) REFERENCES CONTACTOS(IDCONTACTO),
+FOREIGN KEY(IDCORREO) REFERENCES CORREOS(IDCORREOS));
+CREATE TABLE CONTACTOSTELEFONOS (
+    IDCONTACTO NUMBER(4),
+    IDTELEFONO NUMBER(4), 
+    FOREIGN KEY(IDCONTACTO) REFERENCES CONTACTOS(IDCONTACTO),
+    FOREIGN KEY(IDTELEFONO) REFERENCES TELEFONOS(IDTELEFONO));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

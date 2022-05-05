@@ -1,0 +1,133 @@
+[22/04/2022 08:48:22] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 08:48:23] <Main.Java.MainProgram$1> Error al crear la GUI
+[22/04/2022 08:48:23] <Main.Java.MainProgram$1> Cannot invoke "javax.swing.JList.addMouseListener(java.awt.event.MouseListener)" because "Main.Java.GUI.MainGUI.listaContactos" is null
+[22/04/2022 08:49:08] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 08:49:50] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 08:50:35] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 08:59:39] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:00:14] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:04:23] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:05:15] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:06:10] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:06:26] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:10:47] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:23:32] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:24:00] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:24:25] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:29:33] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:30:37] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:30:45] <Main.Java.BBDD.DataManager> Insertando aficion: 10
+[22/04/2022 09:31:06] <Main.Java.BBDD.DataManager> Insertando correo: ashhie@gmail.com
+[22/04/2022 09:32:53] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:32:58] <Main.Java.BBDD.DataManager> Insertando aficion: 11
+[22/04/2022 09:34:03] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:34:10] <Main.Java.BBDD.DataManager> Insertando aficion: 12
+[22/04/2022 09:34:27] <Main.Java.BBDD.DataManager> Insertando correo: ejjao@hotmail.com
+[22/04/2022 09:34:43] <Main.Java.BBDD.DataManager> Insertando correo: 
+[22/04/2022 09:35:40] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:35:46] <Main.Java.BBDD.DataManager> Insertando aficion: 
+[22/04/2022 09:36:14] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:36:19] <Main.Java.BBDD.DataManager> Insertando aficion: 
+[22/04/2022 09:36:23] <Main.Java.BBDD.DataManager> Borrando aficion: 
+[22/04/2022 09:38:35] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:38:42] <Main.Java.BBDD.DataManager> Insertando aficion: 
+[22/04/2022 09:38:45] <Main.Java.BBDD.DataManager> Borrando aficion: 
+[22/04/2022 09:39:08] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:39:13] <Main.Java.BBDD.DataManager> Insertando aficion: 
+[22/04/2022 09:40:00] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:40:08] <Main.Java.BBDD.DataManager> Borrando aficion: 
+[22/04/2022 09:47:13] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:47:27] <Main.Java.BBDD.DataManager> Editando aficion: 10 por 10 si
+[22/04/2022 09:47:29] <Main.Java.BBDD.DataManager> Borrando aficion: 9
+[22/04/2022 09:47:38] <Main.Java.BBDD.DataManager> Editando correo: ejjao@hotmail.com por ejjaooo@hotmail.com
+[22/04/2022 09:47:40] <Main.Java.BBDD.DataManager> Eliminando correo: ashhie@gmail.com
+[22/04/2022 09:50:31] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:50:33] <Main.Java.BBDD.DataManager> column 2 out of bounds [1,1]
+[22/04/2022 09:50:34] <Main.Java.BBDD.DataManager> column 2 out of bounds [1,1]
+[22/04/2022 09:51:25] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:52:50] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:53:07] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:55:39] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:56:06] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:56:21] <Main.Java.MainProgram> Tablas correctas
+[22/04/2022 09:59:38] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:25:21] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:27:42] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:29:34] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:30:43] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:31:00] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:31:15] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:33:57] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:34:44] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:35:11] <Main.Java.BBDD.DataManager> Insertando correo: adwjij@aw.c
+[03/05/2022 08:35:13] <Main.Java.BBDD.DataManager> Insertando correo: weqwe
+[03/05/2022 08:35:15] <Main.Java.BBDD.DataManager> Insertando correo: sd3qq
+[03/05/2022 08:35:16] <Main.Java.BBDD.DataManager> Insertando correo: efwefw
+[03/05/2022 08:35:18] <Main.Java.BBDD.DataManager> Insertando correo: efsf3
+[03/05/2022 08:35:21] <Main.Java.BBDD.DataManager> Insertando correo: dff3333
+[03/05/2022 08:35:23] <Main.Java.BBDD.DataManager> Insertando correo: pksjdipfjew
+[03/05/2022 08:35:27] <Main.Java.BBDD.DataManager> Insertando correo: finlista
+[03/05/2022 08:38:36] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:38:54] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:41:41] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:50:35] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:51:05] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:54:50] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:55:14] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 08:58:12] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:00:19] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:00:59] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:02:57] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:04:49] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:07:54] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:08:11] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:10:00] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:10:26] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:10:55] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:12:11] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:12:25] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:12:41] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:13:01] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:13:15] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:16:26] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:16:27] <Main.Java.MainProgram$1> Error al crear la GUI
+[03/05/2022 09:16:27] <Main.Java.MainProgram$1> Cannot invoke "javax.swing.JScrollPane.setPreferredSize(java.awt.Dimension)" because "Main.Java.GUI.MainGUI.scrollPane_1" is null
+[03/05/2022 09:16:40] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:17:07] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:17:22] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:17:53] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:18:02] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:18:20] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:20:56] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:21:25] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:21:37] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:21:58] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:23:00] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:24:44] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:25:01] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:25:16] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:26:43] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:29:12] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:29:39] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:29:54] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:31:26] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:31:56] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:33:05] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:38:44] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:39:23] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:40:31] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:41:09] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:41:42] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:42:41] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:42:57] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:45:35] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:46:42] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:47:23] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:51:47] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:53:27] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:53:46] <Main.Java.BBDD.DataManager> Editando correo: ejjaooo@hotmail.com por ejjaooo@hotmail.com
+[03/05/2022 09:53:54] <Main.Java.BBDD.DataManager> Editando correo: ejjaooo@hotmail.com por ejjasoo@hotmail.com
+[03/05/2022 09:57:08] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:58:31] <Main.Java.MainProgram> Tablas correctas
+[03/05/2022 09:58:53] <Main.Java.BBDD.DataManager> Editando correo: ejjasoo@hotmail.com por alguien@hotmail.com
+[03/05/2022 10:03:20] <Main.Java.MainProgram> Tablas correctas
