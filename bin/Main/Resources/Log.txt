@@ -131,3 +131,66 @@
 [03/05/2022 09:58:31] <Main.Java.MainProgram> Tablas correctas
 [03/05/2022 09:58:53] <Main.Java.BBDD.DataManager> Editando correo: ejjasoo@hotmail.com por alguien@hotmail.com
 [03/05/2022 10:03:20] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 11:39:28] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 11:40:24] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 11:50:51] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 11:51:17] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 12:16:01] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 12:16:27] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 12:17:23] <Main.Java.MainProgram> Tablas correctas
+[05/05/2022 12:17:38] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:29:12] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:29:45] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:30:22] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:31:17] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:31:31] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:32:06] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:42:05] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:50:45] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:57:08] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:57:34] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:58:04] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:59:27] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 08:59:43] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:12:20] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:13:49] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:14:13] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:14:42] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:15:32] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:18:20] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:19:20] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:24:11] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:25:31] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:29:23] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:30:27] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:31:16] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:32:19] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:32:29] <Main.Java.BBDD.DataManager> Borrando aficion: 12
+[06/05/2022 09:32:30] <Main.Java.BBDD.DataManager> Borrando aficion: 11
+[06/05/2022 09:32:31] <Main.Java.BBDD.DataManager> Borrando aficion: 8
+[06/05/2022 09:32:33] <Main.Java.BBDD.DataManager> Borrando aficion: 7
+[06/05/2022 09:32:34] <Main.Java.BBDD.DataManager> Borrando aficion: 6
+[06/05/2022 09:32:35] <Main.Java.BBDD.DataManager> Borrando aficion: 10 si
+[06/05/2022 09:32:37] <Main.Java.BBDD.DataManager> Borrando aficion: 5
+[06/05/2022 09:32:43] <Main.Java.BBDD.DataManager> Editando aficion: No por Jugar al futbol
+[06/05/2022 09:32:52] <Main.Java.BBDD.DataManager> Editando aficion: 1 por Jugar al Baloncesto
+[06/05/2022 09:32:55] <Main.Java.BBDD.DataManager> Editando aficion: Jugar al futbol por Jugar al Futbol
+[06/05/2022 09:33:03] <Main.Java.BBDD.DataManager> Editando aficion: 2 por Leer libros
+[06/05/2022 09:33:09] <Main.Java.BBDD.DataManager> Editando aficion: 3 por Camping
+[06/05/2022 09:33:41] <Main.Java.BBDD.DataManager> Editando aficion: 4 por Jugar al badmintong
+[06/05/2022 09:33:57] <Main.Java.BBDD.DataManager> Editando correo: adwjij@aw.c por adwjij@aw.c
+[06/05/2022 09:34:07] <Main.Java.BBDD.DataManager> Editando correo: weqwe por weqwe@gmail.com
+[06/05/2022 09:34:09] <Main.Java.BBDD.DataManager> Editando correo: sd3qq por sd3qq@gmail.com
+[06/05/2022 09:34:10] <Main.Java.BBDD.DataManager> Editando correo: efwefw por efwefw@gmail.com
+[06/05/2022 09:34:17] <Main.Java.BBDD.DataManager> Editando correo: efwefw@gmail.com por efwefw@email.com
+[06/05/2022 09:34:19] <Main.Java.BBDD.DataManager> Eliminando correo: efsf3
+[06/05/2022 09:34:22] <Main.Java.BBDD.DataManager> Editando correo: efwefw@email.com por efwefw@email.es
+[06/05/2022 09:36:23] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:40:12] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:41:23] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:41:54] <Main.Java.BBDD.DataManager> Insertando correo: aaasi@sssia.ci
+[06/05/2022 09:48:03] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:49:32] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:49:55] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:51:13] <Main.Java.MainProgram> Tablas correctas
+[06/05/2022 09:52:22] <Main.Java.MainProgram> Tablas correctas

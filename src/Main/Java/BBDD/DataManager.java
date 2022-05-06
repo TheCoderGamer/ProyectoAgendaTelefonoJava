@@ -21,6 +21,7 @@ public class DataManager {
         Logger.log("Borrando aficion: " + aficion);
         DatabaseManager.updateSQL("DELETE FROM aficiones WHERE aficion = '" + aficion + "'");
     }
+    
     public static DefaultListModel<String> getAficiones() {
         DefaultListModel<String> model = new DefaultListModel<String>();
         ResultSet rs = DatabaseManager.getSQL("SELECT * FROM aficiones");
@@ -32,10 +33,7 @@ public class DataManager {
             Logger.log(e.getMessage());
         }
         return model;
-    }
-    
-    
-    
+    }   
     public static DefaultListModel<String> getContactos() {
         DefaultListModel<String> model = new DefaultListModel<String>();
         ResultSet rs = DatabaseManager.getSQL("SELECT * FROM contactos");
@@ -181,6 +179,7 @@ public class DataManager {
         }
         return model;
     }
+
     public static void insertCorreo(String newData) {
         Logger.log("Insertando correo: " + newData);
         DatabaseManager.updateSQL("INSERT INTO correos (correo) VALUES ('" + newData + "')");

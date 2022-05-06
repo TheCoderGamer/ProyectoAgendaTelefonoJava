@@ -71,7 +71,15 @@ public class MainGUI extends JFrame{
 
 	private static DefaultListModel<String> mdl_aficiones;
 
-	private JList<String> listaAficiones;
+	private static JList<String> listaAficiones;
+	private JPanel p_correo;
+	static JButton bt_edit_correos;
+	private JPanel panel;
+	private JPanel panel_1;
+	static JButton bt_edit_telefonos;
+	static JButton bt_edit_aficiones;
+
+	static Integer IDcontacto;
 	
 	
 	public MainGUI() {
@@ -163,7 +171,7 @@ public class MainGUI extends JFrame{
 		gbl_detalles.columnWidths = new int[]{0, 0, 0};
 		gbl_detalles.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_detalles.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-		gbl_detalles.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_detalles.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		detalles.setLayout(gbl_detalles);
 		zonaDetalles.add(detalles, BorderLayout.CENTER);
 		
@@ -183,7 +191,7 @@ public class MainGUI extends JFrame{
 		dt_nombre.setText("...");
 		dt_nombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		GridBagConstraints gbc_dt_nombre = new GridBagConstraints();
-		gbc_dt_nombre.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_nombre.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_nombre.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_nombre.gridx = 1;
 		gbc_dt_nombre.gridy = 0;
@@ -206,7 +214,7 @@ public class MainGUI extends JFrame{
 		dt_apellidos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		dt_apellidos.setText("...");
 		GridBagConstraints gbc_dt_apellidos = new GridBagConstraints();
-		gbc_dt_apellidos.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_apellidos.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_apellidos.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_apellidos.gridx = 1;
 		gbc_dt_apellidos.gridy = 1;
@@ -227,7 +235,7 @@ public class MainGUI extends JFrame{
 		dt_direccion.setText("...");
 		dt_direccion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		GridBagConstraints gbc_dt_direccion = new GridBagConstraints();
-		gbc_dt_direccion.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_direccion.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_direccion.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_direccion.gridx = 1;
 		gbc_dt_direccion.gridy = 2;
@@ -248,7 +256,7 @@ public class MainGUI extends JFrame{
 		dt_fechaNac.setText("...");
 		dt_fechaNac.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		GridBagConstraints gbc_dt_fechaNac = new GridBagConstraints();
-		gbc_dt_fechaNac.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_fechaNac.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_fechaNac.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_fechaNac.gridx = 1;
 		gbc_dt_fechaNac.gridy = 3;
@@ -269,7 +277,7 @@ public class MainGUI extends JFrame{
 		dt_genero.setEditable(false);
 		dt_genero.setText("...");
 		GridBagConstraints gbc_dt_genero = new GridBagConstraints();
-		gbc_dt_genero.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_genero.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_genero.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_genero.gridx = 1;
 		gbc_dt_genero.gridy = 4;
@@ -290,26 +298,39 @@ public class MainGUI extends JFrame{
 		dt_notas.setText("...");
 		dt_notas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		GridBagConstraints gbc_dt_notas = new GridBagConstraints();
-		gbc_dt_notas.insets = new Insets(0, 0, 5, 5);
+		gbc_dt_notas.insets = new Insets(0, 0, 5, 0);
 		gbc_dt_notas.fill = GridBagConstraints.HORIZONTAL;
 		gbc_dt_notas.gridx = 1;
 		gbc_dt_notas.gridy = 5;
 		detalles.add(dt_notas, gbc_dt_notas);
 		dt_notas.setColumns(10);
 		
-		dt_correos = new JLabel("Correos");
-		dt_correos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		GridBagConstraints gbc_dt_correos = new GridBagConstraints();
-		gbc_dt_correos.insets = new Insets(0, 0, 5, 5);
-		gbc_dt_correos.gridwidth = 2;
-		gbc_dt_correos.gridx = 0;
-		gbc_dt_correos.gridy = 6;
-		detalles.add(dt_correos, gbc_dt_correos);
-		
 		
 		mdl_correos = new DefaultListModel<String>();
 		mdl_correos.addElement("                                                            ");
 		mdl_correos.addElement("Test2");
+		
+		p_correo = new JPanel();
+		GridBagConstraints gbc_p_correo = new GridBagConstraints();
+		gbc_p_correo.anchor = GridBagConstraints.EAST;
+		gbc_p_correo.gridwidth = 2;
+		gbc_p_correo.insets = new Insets(0, 0, 5, 0);
+		gbc_p_correo.fill = GridBagConstraints.BOTH;
+		gbc_p_correo.gridx = 0;
+		gbc_p_correo.gridy = 6;
+		detalles.add(p_correo, gbc_p_correo);
+		p_correo.setLayout(new BorderLayout(0, 0));
+		
+		dt_correos = new JLabel("Correos");
+		dt_correos.setHorizontalAlignment(SwingConstants.CENTER);
+		p_correo.add(dt_correos, BorderLayout.CENTER);
+		dt_correos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		bt_edit_correos = new JButton("Editar");
+		bt_edit_correos.setMargin(new Insets(0, 0, 0, 0));
+		bt_edit_correos.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bt_edit_correos.addActionListener(listener);
+		p_correo.add(bt_edit_correos, BorderLayout.EAST);
 
 		listaCorreos = new JList<String>(mdl_correos);
 		listaCorreos.setModel(mdl_correos);
@@ -319,30 +340,42 @@ public class MainGUI extends JFrame{
 		listaCorreos.setBackground(new Color(240, 240, 240));
 		scrollCorreos = new JScrollPane(listaCorreos);
 		GridBagConstraints gbc_scrollCorreos = new GridBagConstraints();
-		gbc_scrollCorreos.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollCorreos.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollCorreos.gridwidth = 2;
 		gbc_scrollCorreos.gridx = 0;
 		gbc_scrollCorreos.gridy = 7;
 		detalles.add(scrollCorreos, gbc_scrollCorreos);
 		// listaCorreos.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		listaCorreos.setVisibleRowCount(3);
+		
+		mdl_telefonos = new DefaultListModel<String>();
+		mdl_telefonos.addElement("                                                            ");
+		mdl_telefonos.addElement("Test2");
+		
+		panel = new JPanel();
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridwidth = 2;
+		gbc_panel.insets = new Insets(0, 0, 5, 0);
+		gbc_panel.fill = GridBagConstraints.BOTH;
+		gbc_panel.gridx = 0;
+		gbc_panel.gridy = 8;
+		detalles.add(panel, gbc_panel);
+		panel.setLayout(new BorderLayout(0, 0));
 		// Dimension d = listaCorreos.getPreferredSize();
 		// d.width = 500;
 		// scrollCorreos.setPreferredSize(d);
 
 		// Telefonos
 		dt_Telefonos = new JLabel("Telefonos");
+		dt_Telefonos.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(dt_Telefonos);
 		dt_Telefonos.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		GridBagConstraints gbc_dt_Telefonos = new GridBagConstraints();
-		gbc_dt_Telefonos.insets = new Insets(0, 0, 5, 5);
-		gbc_dt_Telefonos.gridwidth = 2;
-		gbc_dt_Telefonos.gridx = 0;
-		gbc_dt_Telefonos.gridy = 8;
-		detalles.add(dt_Telefonos, gbc_dt_Telefonos);
 		
-		mdl_telefonos = new DefaultListModel<String>();
-		mdl_telefonos.addElement("                                                            ");
-		mdl_telefonos.addElement("Test2");
+		bt_edit_telefonos = new JButton("Editar");
+		bt_edit_telefonos.setMargin(new Insets(0, 0, 0, 0));
+		bt_edit_telefonos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		bt_edit_telefonos.addActionListener(listener);
+		panel.add(bt_edit_telefonos, BorderLayout.EAST);
 
 		listaTelefonos = new JList<String>(mdl_telefonos);
 		listaTelefonos.setModel(mdl_telefonos);
@@ -352,26 +385,38 @@ public class MainGUI extends JFrame{
 		listaTelefonos.setBackground(new Color(240, 240, 240));
 		scrollTelefonos = new JScrollPane(listaTelefonos);
 		GridBagConstraints gbc_scrollTelefonos = new GridBagConstraints();
-		gbc_scrollTelefonos.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollTelefonos.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollTelefonos.gridwidth = 2;
 		gbc_scrollTelefonos.gridx = 0;
 		gbc_scrollTelefonos.gridy = 9;
 		detalles.add(scrollTelefonos, gbc_scrollTelefonos);
 		listaTelefonos.setVisibleRowCount(3);
 		
-
-		dt_aficiones = new JLabel("Aficiones");
-		dt_aficiones.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		GridBagConstraints gbc_dt_aficiones = new GridBagConstraints();
-		gbc_dt_aficiones.gridwidth = 2;
-		gbc_dt_aficiones.insets = new Insets(0, 0, 5, 5);
-		gbc_dt_aficiones.gridx = 0;
-		gbc_dt_aficiones.gridy = 10;
-		detalles.add(dt_aficiones, gbc_dt_aficiones);
-		
 		mdl_aficiones = new DefaultListModel<String>();
 		mdl_aficiones.addElement("                                                            ");
 		mdl_aficiones.addElement("Test2");
+		
+		panel_1 = new JPanel();
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.gridwidth = 2;
+		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 0;
+		gbc_panel_1.gridy = 10;
+		detalles.add(panel_1, gbc_panel_1);
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+
+		dt_aficiones = new JLabel("Aficiones");
+		dt_aficiones.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(dt_aficiones);
+		dt_aficiones.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		bt_edit_aficiones = new JButton("Editar");
+		bt_edit_aficiones.setMargin(new Insets(0, 0, 0, 0));
+		bt_edit_aficiones.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bt_edit_aficiones.addActionListener(listener);
+		panel_1.add(bt_edit_aficiones, BorderLayout.EAST);
 
 		listaAficiones = new JList<String>(mdl_aficiones);
 		listaAficiones.setModel(mdl_aficiones);
@@ -381,7 +426,7 @@ public class MainGUI extends JFrame{
 		listaAficiones.setBackground(new Color(240, 240, 240));
 		scrollAficiones = new JScrollPane(listaAficiones);
 		GridBagConstraints gbc_scrollAficiones = new GridBagConstraints();
-		gbc_scrollAficiones.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollAficiones.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollAficiones.gridwidth = 2;
 		gbc_scrollAficiones.gridx = 0;
 		gbc_scrollAficiones.gridy = 11;
@@ -420,8 +465,8 @@ public class MainGUI extends JFrame{
         listaContactos.setModel(mdl_contactos);
     }
 	public static void actualizarDetallesContacto(){
+		IDcontacto = Integer.parseInt(listaContactos.getSelectedValue().split("\\|")[0]);
 		if(listaContactos.getSelectedValue() == null){ return; }
-		Integer IDcontacto = Integer.parseInt(listaContactos.getSelectedValue().split("\\|")[0]);
 		// Nombre
 		dt_nombre.setText(DataManager.getNombreContacto(IDcontacto));
 		// Apellidos
@@ -441,9 +486,11 @@ public class MainGUI extends JFrame{
 		// Telefonos
 		mdl_telefonos.clear();
 		mdl_telefonos = DataManager.getTelefonosContacto(IDcontacto);
+		listaTelefonos.setModel(mdl_telefonos);
 		// Aficiones
 		mdl_aficiones.clear();
 		mdl_aficiones = DataManager.getAficionesContacto(IDcontacto);
+		listaAficiones.setModel(mdl_aficiones);
 		frame.revalidate();
 	}
 }

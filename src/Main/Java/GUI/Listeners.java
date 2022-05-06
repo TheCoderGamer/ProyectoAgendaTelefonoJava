@@ -10,9 +10,13 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import Main.Java.BBDD.DataManager;
+
 class Listeners implements ActionListener, WindowListener, MouseListener {
     static ListaEdicion listaEdicion;
+    static PertenenciaDialog pertenenciaDialog;
 
+    @Override
     public void actionPerformed(ActionEvent e) {
       Object fuente = e.getSource();
       
@@ -28,6 +32,16 @@ class Listeners implements ActionListener, WindowListener, MouseListener {
 
       else if(fuente == ListaEdicion.bt_anadir){
         new AddDialog(ListaEdicion.tipoEditor);
+      }
+      
+      else if (fuente == MainGUI.bt_edit_aficiones){
+        pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Aficiones");
+      }
+      else if (fuente == MainGUI.bt_edit_correos){
+        pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Correos");
+      }
+      else if (fuente == MainGUI.bt_edit_telefonos){
+        pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Telefonos");
       }
   
     }
@@ -45,11 +59,27 @@ class Listeners implements ActionListener, WindowListener, MouseListener {
             System.exit(0);
         }
       }
-      else if (fuente == listaEdicion.frame) {
+      else if (listaEdicion != null && fuente == listaEdicion.frame) {
         MainGUI.actualizarDetallesContacto();
+      }
+      else if (fuente == pertenenciaDialog.frame){
+       
+        for (int i = 0; i < pertenenciaDialog.lista.length; i++) {
+          Boolean esta = pertenenciaDialog.lista[i].isSelected();
+
+          //TODO: Tiene que comprobar si esta tickeado y si lo esta comprobar si esta en la tabla
+          //      contactosaficiones.. y no lo esta añadirlo. Y si no esta tickeado hacer lo mismo pero quitandolo
+
+
+        }
+        
+
+        MainGUI.actualizarDetallesContacto();
+        pertenenciaDialog.frame.dispose();
       }
     }
     
+    @Override
     public void mouseClicked(final java.awt.event.MouseEvent evt) {
       Object fuente = evt.getSource();
       
