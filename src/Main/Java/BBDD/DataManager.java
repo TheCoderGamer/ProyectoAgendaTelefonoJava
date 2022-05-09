@@ -192,4 +192,153 @@ public class DataManager {
         Logger.log("Eliminando correo: " + oldData);
         DatabaseManager.updateSQL("DELETE FROM correos WHERE correo = '" + oldData + "'");
     }
+
+    public static void insertTelefono(String newData) {
+        Logger.log("Insertando telefono: " + newData);
+        DatabaseManager.updateSQL("INSERT INTO telefonos (telefono) VALUES ('" + newData + "')");
+    }
+    public static void editTelefono(String edicion, String newData) {
+        Logger.log("Editando telefono: " + edicion + " por " + newData);
+        DatabaseManager.updateSQL("UPDATE telefonos SET telefono = '" + newData + "' WHERE telefono = '" + edicion + "'");
+    }
+    public static void deleteTelefono(String oldData) {
+        Logger.log("Eliminando telefono: " + oldData);
+        DatabaseManager.updateSQL("DELETE FROM telefonos WHERE telefono = '" + oldData + "'");
+    }
+    
+    
+    public static void insertarContactoAficion(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idaficion = getIdByString("Aficiones", "IDaficion", "aficion", string);
+        
+        // Comprueba si existe la aficion en la tabla contactosaficiones y lo incluye si no está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactosaficiones WHERE idcontacto = " + iDcontacto + " AND idaficion = " + idaficion);
+        try {
+            if (!rs.next()) {
+                DatabaseManager.updateSQL("INSERT INTO contactosaficiones (idcontacto, idaficion) VALUES (" + iDcontacto + ", " + idaficion + ")");
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+        
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    public static void borrarContactoAficion(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idaficion = getIdByString("Aficiones", "IDaficion", "aficion", string);
+
+        // Comprueba si existe la aficion en la tabla contactosaficiones y lo elimina si está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactosaficiones WHERE idcontacto = " + iDcontacto + " AND idaficion = " + idaficion);
+        try {
+            if (rs.next()) {
+                DatabaseManager.updateSQL("DELETE FROM contactosaficiones WHERE idcontacto = " + iDcontacto + " AND idaficion = " + idaficion);
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    public static void insertarContactoCorreo(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idcorreo = getIdByString("Correos", "IDcorreo", "correo", string);
+
+        // Comprueba si existe el correo en la tabla contactoscorreos y lo incluye si no está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactoscorreos WHERE idcontacto = " + iDcontacto + " AND idcorreo = " + idcorreo);
+        try {
+            if (!rs.next()) {
+                DatabaseManager.updateSQL("INSERT INTO contactoscorreos (idcontacto, idcorreo) VALUES (" + iDcontacto + ", " + idcorreo + ")");
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+        
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    public static void borrarContactoCorreo(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idcorreo = getIdByString("Correos", "IDcorreo", "correo", string);
+        
+        // Comprueba si existe el correo en la tabla contactoscorreos y lo elimina si está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactoscorreos WHERE idcontacto = " + iDcontacto + " AND idcorreo = " + idcorreo);
+        try {
+            if (rs.next()) {
+                DatabaseManager.updateSQL("DELETE FROM contactoscorreos WHERE idcontacto = " + iDcontacto + " AND idcorreo = " + idcorreo);
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    public static void insertarContactoTelefono(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idtelefono = getIdByString("Telefonos", "IDtelefono", "telefono", string);
+
+        // Comprueba si existe el telefono en la tabla contactostelefonos y lo incluye si no está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactostelefonos WHERE idcontacto = " + iDcontacto + " AND idtelefono = " + idtelefono);
+        try {
+            if (!rs.next()) {
+                DatabaseManager.updateSQL("INSERT INTO contactostelefonos (idcontacto, idtelefono) VALUES (" + iDcontacto + ", " + idtelefono + ")");
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    public static void borrarContactoTelefono(Integer iDcontacto, String string) {
+        ResultSet rs;
+        Integer idtelefono = getIdByString("Telefonos", "IDtelefono", "telefono",  string);
+
+        // Comprueba si existe el telefono en la tabla contactostelefonos y lo elimina si está
+        rs = DatabaseManager.getSQL("SELECT * FROM contactostelefonos WHERE idcontacto = " + iDcontacto + " AND idtelefono = " + idtelefono);
+        try {
+            if (rs.next()) {
+                DatabaseManager.updateSQL("DELETE FROM contactostelefonos WHERE idcontacto = " + iDcontacto + " AND idtelefono = " + idtelefono);
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+
+        try {
+            rs.close();
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+    }
+    
+    private static Integer getIdByString(String tabla, String nameID, String name , String text) {
+        Integer ID = 0;
+        String sql = "SELECT " + nameID + " FROM " + tabla + " WHERE " + name + " = '" + text + "'";
+        ResultSet rs = DatabaseManager.getSQL(sql);
+        try {
+            while (rs.next()) {
+                ID = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            Logger.log(e.getMessage());
+        }
+        return ID;
+    }
 }

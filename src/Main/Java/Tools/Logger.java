@@ -15,7 +15,7 @@ public class Logger {
         
         System.out.println(logMSG);
 
-        File file = new File("src/main/resources/Log.txt");
+        File file = new File("src/Resources/Log.txt");
         try {
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

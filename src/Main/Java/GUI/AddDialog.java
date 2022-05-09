@@ -26,7 +26,7 @@ public class AddDialog extends JFrame{
 	public AddDialog(String tipoEditor) {
 		this.tipoEditor = tipoEditor;
 		frame.setTitle("Añadir " + tipoEditor);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(EditDialog.class.getResource("/Main/Resources/Images/aficiones.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(EditDialog.class.getResource("/Main/../Resources/Images/aficiones.png")));
 		frame.setBounds(200, 200, 450, 140);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
@@ -68,6 +68,9 @@ public class AddDialog extends JFrame{
 				break;
 			case "Correos":
 				DataManager.insertCorreo(newData);
+				break;
+			case "Telefonos":
+				DataManager.insertTelefono(newData);
 				break;
 			default :
 				break;

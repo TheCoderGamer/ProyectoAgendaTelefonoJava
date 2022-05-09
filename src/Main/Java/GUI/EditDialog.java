@@ -29,7 +29,7 @@ public class EditDialog extends JFrame{
 		this.tipoEditor = tipoEditor;
 		this.oldData = oldData;
 		frame.setTitle("Editar " + tipoEditor);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(EditDialog.class.getResource("/Main/Resources/Images/aficiones.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(EditDialog.class.getResource("/Main/../Resources/Images/aficiones.png")));
 		frame.setBounds(200, 200, 450, 120);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
@@ -82,6 +82,9 @@ public class EditDialog extends JFrame{
 			case "Correos":
 				DataManager.editCorreo(oldData, newData);
 				break;
+			case "Telefonos":
+				DataManager.editTelefono(oldData, newData);
+				break;
 			default:
 				break;
 		}		
@@ -97,6 +100,9 @@ public class EditDialog extends JFrame{
 				break;
 			case "Correos":
 				DataManager.deleteCorreo(oldData);
+				break;
+			case "Telefonos":
+				DataManager.deleteTelefono(oldData);
 				break;
 			default:
 				break;

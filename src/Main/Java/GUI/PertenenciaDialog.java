@@ -1,12 +1,12 @@
 package Main.Java.GUI;
 
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -22,7 +22,7 @@ public class PertenenciaDialog {
     JList<CheckListItem> list;
     CheckListItem[] lista;
     Listeners listener = MainGUI.listener;
-    String tipo;
+    String tipo; // Aficiones, Correos, Telefonos
        
     public PertenenciaDialog(int IDcontacto, String tipo) {
         this.tipo = tipo;
@@ -30,6 +30,7 @@ public class PertenenciaDialog {
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setBounds(200, 200, 450, 340);
         frame.setTitle("Pertenencia de " + tipo);
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ListaEdicion.class.getResource("/Main/../Resources/Images/aficiones.png")));
         
         crearLista(IDcontacto, tipo);
         

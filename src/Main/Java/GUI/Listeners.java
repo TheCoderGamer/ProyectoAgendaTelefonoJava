@@ -29,18 +29,24 @@ class Listeners implements ActionListener, WindowListener, MouseListener {
       else if (fuente == MainGUI.mb2_correos){
         listaEdicion = new ListaEdicion("Correos");
       }
+      else if (fuente == MainGUI.mb2_telefonos){
+        listaEdicion = new ListaEdicion("Telefonos");
+      }
 
       else if(fuente == ListaEdicion.bt_anadir){
         new AddDialog(ListaEdicion.tipoEditor);
       }
       
       else if (fuente == MainGUI.bt_edit_aficiones){
+        if (MainGUI.IDcontacto == null) { return; }
         pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Aficiones");
       }
       else if (fuente == MainGUI.bt_edit_correos){
+        if (MainGUI.IDcontacto == null) { return; }
         pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Correos");
       }
       else if (fuente == MainGUI.bt_edit_telefonos){
+        if (MainGUI.IDcontacto == null) { return; }
         pertenenciaDialog = new PertenenciaDialog(MainGUI.IDcontacto, "Telefonos");
       }
   
@@ -63,17 +69,39 @@ class Listeners implements ActionListener, WindowListener, MouseListener {
         MainGUI.actualizarDetallesContacto();
       }
       else if (fuente == pertenenciaDialog.frame){
-       
+        
+        
         for (int i = 0; i < pertenenciaDialog.lista.length; i++) {
           Boolean esta = pertenenciaDialog.lista[i].isSelected();
-
-          //TODO: Tiene que comprobar si esta tickeado y si lo esta comprobar si esta en la tabla
-          //      contactosaficiones.. y no lo esta añadirlo. Y si no esta tickeado hacer lo mismo pero quitandolo
-
-
+          if (esta) {
+            switch (pertenenciaDialog.tipo) {
+              case "Aficiones":
+                DataManager.insertarContactoAficion(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+              case "Correos":
+                DataManager.insertarContactoCorreo(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+              case "Telefonos":
+                DataManager.insertarContactoTelefono(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+            }
+          }
+          else {
+            switch (pertenenciaDialog.tipo) {
+              case "Aficiones":
+                DataManager.borrarContactoAficion(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+              case "Correos":
+                DataManager.borrarContactoCorreo(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+              case "Telefonos":
+                DataManager.borrarContactoTelefono(MainGUI.IDcontacto, pertenenciaDialog.lista[i].toString());
+                break;
+            }
+          }
         }
         
-
+        
         MainGUI.actualizarDetallesContacto();
         pertenenciaDialog.frame.dispose();
       }

@@ -31,7 +31,7 @@ public class ListaEdicion extends JFrame{
         listener = MainGUI.listener;
         frame = new JFrame();
 		frame.setVisible(true);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ListaEdicion.class.getResource("/Main/Resources/Images/aficiones.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ListaEdicion.class.getResource("/Main/../Resources/Images/aficiones.png")));
 		frame.setTitle("Editor de " + tipoEditor);
         frame.setBounds(150, 150, 450, 300);
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

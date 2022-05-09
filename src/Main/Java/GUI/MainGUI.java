@@ -35,6 +35,7 @@ public class MainGUI extends JFrame{
 	static JLabel etiqueta2;
 	static JMenuItem mb2_aficiones;
 	static JMenuItem mb2_correos;
+	static JMenuItem mb2_telefonos;
 	static JMenuItem mb1_bbdd;
 	static DefaultListModel<String> mdl_contactos;
 	static DefaultListModel<String> mdl_correos;
@@ -94,7 +95,7 @@ public class MainGUI extends JFrame{
 		frame.setBounds(100, 100, 909, 681);
 		frame.setTitle("Agenda de Contactos");
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		frame.setIconImage(new ImageIcon(getClass().getResource("/Main/Resources/Images/app.png")).getImage());
+		frame.setIconImage(new ImageIcon(getClass().getResource("/Main/../Resources/Images/app.png")).getImage());
 		frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(listener);
 		frame.setVisible(true);
@@ -107,7 +108,7 @@ public class MainGUI extends JFrame{
 		menuBar.add(mb_archivo);
 		// Menu Archivo -> BBDD
 		mb1_bbdd = new JMenuItem("Configurar Base de Datos");
-		mb1_bbdd.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/Resources/Images/bbdd.png")));
+		mb1_bbdd.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/bbdd.png")));
 		mb1_bbdd.addActionListener(listener);
 		mb_archivo.add(mb1_bbdd);
 		// Menu Editar
@@ -115,14 +116,19 @@ public class MainGUI extends JFrame{
 		menuBar.add(mb_editar);
 		// Menu Editar -> Aficiones
 		mb2_aficiones = new JMenuItem("Aficiones");
-		mb2_aficiones.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/Resources/Images/aficiones.png")));
+		mb2_aficiones.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/aficiones.png")));
 		mb2_aficiones.addActionListener(listener);
 		mb_editar.add(mb2_aficiones);	
 		// Menu Editar -> Correos
 		mb2_correos = new JMenuItem("Correos");
-		mb2_correos.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/Resources/Images/correos.png")));
+		mb2_correos.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/correos.png")));
 		mb2_correos.addActionListener(listener);
 		mb_editar.add(mb2_correos);
+		// Menu Editar -> Telefonos
+		mb2_telefonos = new JMenuItem("Telefonos");
+		mb2_telefonos.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/telefonos.png")));
+		mb2_telefonos.addActionListener(listener);
+		mb_editar.add(mb2_telefonos);
 
 		// Zona util
 		zonaUtil = new JPanel();
@@ -161,7 +167,7 @@ public class MainGUI extends JFrame{
 		// Etiqueta nombre contacto en Titulo
 		etiqueta2 = new JLabel("Contacto1");
 		etiqueta2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		etiqueta2.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/Resources/Images/app.png")));
+		etiqueta2.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/app.png")));
 		zonaDetalles.add(etiqueta2, BorderLayout.NORTH);
 		
 		// Panel detalles
@@ -308,7 +314,6 @@ public class MainGUI extends JFrame{
 		
 		mdl_correos = new DefaultListModel<String>();
 		mdl_correos.addElement("                                                            ");
-		mdl_correos.addElement("Test2");
 		
 		p_correo = new JPanel();
 		GridBagConstraints gbc_p_correo = new GridBagConstraints();
@@ -345,12 +350,10 @@ public class MainGUI extends JFrame{
 		gbc_scrollCorreos.gridx = 0;
 		gbc_scrollCorreos.gridy = 7;
 		detalles.add(scrollCorreos, gbc_scrollCorreos);
-		// listaCorreos.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		listaCorreos.setVisibleRowCount(3);
 		
 		mdl_telefonos = new DefaultListModel<String>();
 		mdl_telefonos.addElement("                                                            ");
-		mdl_telefonos.addElement("Test2");
 		
 		panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -361,9 +364,6 @@ public class MainGUI extends JFrame{
 		gbc_panel.gridy = 8;
 		detalles.add(panel, gbc_panel);
 		panel.setLayout(new BorderLayout(0, 0));
-		// Dimension d = listaCorreos.getPreferredSize();
-		// d.width = 500;
-		// scrollCorreos.setPreferredSize(d);
 
 		// Telefonos
 		dt_Telefonos = new JLabel("Telefonos");
@@ -373,7 +373,7 @@ public class MainGUI extends JFrame{
 		
 		bt_edit_telefonos = new JButton("Editar");
 		bt_edit_telefonos.setMargin(new Insets(0, 0, 0, 0));
-		bt_edit_telefonos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		bt_edit_telefonos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bt_edit_telefonos.addActionListener(listener);
 		panel.add(bt_edit_telefonos, BorderLayout.EAST);
 
@@ -394,7 +394,6 @@ public class MainGUI extends JFrame{
 		
 		mdl_aficiones = new DefaultListModel<String>();
 		mdl_aficiones.addElement("                                                            ");
-		mdl_aficiones.addElement("Test2");
 		
 		panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
