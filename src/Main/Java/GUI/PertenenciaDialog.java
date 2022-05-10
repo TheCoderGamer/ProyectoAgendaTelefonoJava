@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -23,8 +24,41 @@ public class PertenenciaDialog {
     CheckListItem[] lista;
     Listeners listener = MainGUI.listener;
     String tipo; // Aficiones, Correos, Telefonos
-       
+    Boolean editar = false;
+    
+    // Añadiendo datos a la lista
+    public PertenenciaDialog(String tipo, DefaultListModel<String> mdl) {
+        editar = false;
+        this.tipo = tipo;
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        frame.setBounds(200, 200, 450, 340);
+        frame.setTitle("Pertenencia de " + tipo);
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage(ListaEdicion.class.getResource("/Main/../Resources/Images/aficiones.png")));
+        
+        crearLista(tipo, mdl);
+        
+        list.setCellRenderer(new CheckListRenderer());
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                JList<CheckListItem> list = (JList<CheckListItem>) event.getSource();
+                int index = list.locationToIndex(event.getPoint());// Get index of item
+                // clicked
+                CheckListItem item = (CheckListItem) list.getModel().getElementAt(index);
+                item.setSelected(!item.isSelected()); // Toggle selected state
+                list.repaint(list.getCellBounds(index, index));// Repaint cell
+            }
+        });
+        frame.getContentPane().add(new JScrollPane(list));
+        frame.setVisible(true);
+        frame.addWindowListener(listener);
+    }
+
+    // Editando datos 
     public PertenenciaDialog(int IDcontacto, String tipo) {
+        editar = true;
         this.tipo = tipo;
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -91,6 +125,41 @@ public class PertenenciaDialog {
         lista  = new CheckListItem[listaTemp.size()];
         listaTemp.toArray(lista);
         list = new JList<CheckListItem>(lista);    
+    }
+    
+    
+    private void crearLista(String tipo, DefaultListModel<String> mdl){
+        Object[] listaTodo;
+        Object[] listaContacto = mdl.toArray();
+
+        switch (tipo){
+            case "Aficiones":
+                listaTodo = DataManager.getAficiones().toArray();
+                break;
+            case "Correos":
+                listaTodo = DataManager.getCorreos().toArray();
+                break;
+            case "Telefonos":
+                listaTodo = DataManager.getTelefonos().toArray();
+                break;
+            default:
+                return;
+        }
+        List <CheckListItem> listaTemp = new ArrayList<CheckListItem>();
+        
+        for(int i = 0; i < listaTodo.length; i++){
+            boolean esta = false;
+            for(int j = 0; j < listaContacto.length; j++){
+                if(listaTodo[i].equals(listaContacto[j])){
+                    esta = true;
+                    break;
+                }
+            }
+            listaTemp.add(new CheckListItem(listaTodo[i].toString(), esta));
+         }
+         lista  = new CheckListItem[listaTemp.size()];
+         listaTemp.toArray(lista);
+         list = new JList<CheckListItem>(lista);   
     }
 }
 

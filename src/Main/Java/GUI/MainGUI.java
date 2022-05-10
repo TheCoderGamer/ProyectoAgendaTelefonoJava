@@ -22,7 +22,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Main.Java.BBDD.DataManager;
+import Main.Java.Tools.Logger;
+
 import javax.swing.JButton;
+import java.awt.FlowLayout;
 
 
 public class MainGUI extends JFrame{
@@ -32,7 +35,6 @@ public class MainGUI extends JFrame{
 	static JFrame frame;
 	static JTextField dt_nombre;
 	static JTextField dt_apellidos;
-	static JLabel etiqueta2;
 	static JMenuItem mb2_aficiones;
 	static JMenuItem mb2_correos;
 	static JMenuItem mb2_telefonos;
@@ -66,21 +68,26 @@ public class MainGUI extends JFrame{
 	private static JScrollPane scrollAficiones;
 	private static JLabel dl_notas;
 	private static JTextField dt_notas;
-	private static JButton bt_anadir;
+	static JButton bt_anadir;
 
 	private JScrollPane scrollTelefonos;
 
 	private static DefaultListModel<String> mdl_aficiones;
 
 	private static JList<String> listaAficiones;
-	private JPanel p_correo;
+	private JPanel p_correos;
 	static JButton bt_edit_correos;
-	private JPanel panel;
-	private JPanel panel_1;
+	private JPanel p_telefonos;
+	private JPanel p_aficiones;
 	static JButton bt_edit_telefonos;
 	static JButton bt_edit_aficiones;
 
 	static Integer IDcontacto;
+	private JPanel p_titulo;
+	private static JLabel etiqueta2;
+	static JButton bt_edit;
+	private JPanel p_botones;
+	static JButton bt_delete;
 	
 	
 	public MainGUI() {
@@ -163,12 +170,6 @@ public class MainGUI extends JFrame{
 		zonaContactos.setLayout(new BorderLayout(0, 0));
 		zonaUtil.add(zonaDetalles, gbc_zonaDetalles);
 		zonaDetalles.setLayout(new BorderLayout(0, 0));
-		
-		// Etiqueta nombre contacto en Titulo
-		etiqueta2 = new JLabel("Contacto1");
-		etiqueta2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		etiqueta2.setIcon(new ImageIcon(MainGUI.class.getResource("/Main/../Resources/Images/app.png")));
-		zonaDetalles.add(etiqueta2, BorderLayout.NORTH);
 		
 		// Panel detalles
 		detalles = new JPanel();
@@ -315,27 +316,27 @@ public class MainGUI extends JFrame{
 		mdl_correos = new DefaultListModel<String>();
 		mdl_correos.addElement("                                                            ");
 		
-		p_correo = new JPanel();
-		GridBagConstraints gbc_p_correo = new GridBagConstraints();
-		gbc_p_correo.anchor = GridBagConstraints.EAST;
-		gbc_p_correo.gridwidth = 2;
-		gbc_p_correo.insets = new Insets(0, 0, 5, 0);
-		gbc_p_correo.fill = GridBagConstraints.BOTH;
-		gbc_p_correo.gridx = 0;
-		gbc_p_correo.gridy = 6;
-		detalles.add(p_correo, gbc_p_correo);
-		p_correo.setLayout(new BorderLayout(0, 0));
+		p_correos = new JPanel();
+		GridBagConstraints gbc_p_correos = new GridBagConstraints();
+		gbc_p_correos.anchor = GridBagConstraints.EAST;
+		gbc_p_correos.gridwidth = 2;
+		gbc_p_correos.insets = new Insets(0, 0, 5, 0);
+		gbc_p_correos.fill = GridBagConstraints.BOTH;
+		gbc_p_correos.gridx = 0;
+		gbc_p_correos.gridy = 6;
+		detalles.add(p_correos, gbc_p_correos);
+		p_correos.setLayout(new BorderLayout(0, 0));
 		
 		dt_correos = new JLabel("Correos");
 		dt_correos.setHorizontalAlignment(SwingConstants.CENTER);
-		p_correo.add(dt_correos, BorderLayout.CENTER);
+		p_correos.add(dt_correos, BorderLayout.CENTER);
 		dt_correos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		bt_edit_correos = new JButton("Editar");
 		bt_edit_correos.setMargin(new Insets(0, 0, 0, 0));
 		bt_edit_correos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bt_edit_correos.addActionListener(listener);
-		p_correo.add(bt_edit_correos, BorderLayout.EAST);
+		p_correos.add(bt_edit_correos, BorderLayout.EAST);
 
 		listaCorreos = new JList<String>(mdl_correos);
 		listaCorreos.setModel(mdl_correos);
@@ -355,27 +356,27 @@ public class MainGUI extends JFrame{
 		mdl_telefonos = new DefaultListModel<String>();
 		mdl_telefonos.addElement("                                                            ");
 		
-		panel = new JPanel();
-		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.gridwidth = 2;
-		gbc_panel.insets = new Insets(0, 0, 5, 0);
-		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 0;
-		gbc_panel.gridy = 8;
-		detalles.add(panel, gbc_panel);
-		panel.setLayout(new BorderLayout(0, 0));
+		p_telefonos = new JPanel();
+		GridBagConstraints gbc_p_telefonos = new GridBagConstraints();
+		gbc_p_telefonos.gridwidth = 2;
+		gbc_p_telefonos.insets = new Insets(0, 0, 5, 0);
+		gbc_p_telefonos.fill = GridBagConstraints.BOTH;
+		gbc_p_telefonos.gridx = 0;
+		gbc_p_telefonos.gridy = 8;
+		detalles.add(p_telefonos, gbc_p_telefonos);
+		p_telefonos.setLayout(new BorderLayout(0, 0));
 
 		// Telefonos
 		dt_Telefonos = new JLabel("Telefonos");
 		dt_Telefonos.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(dt_Telefonos);
+		p_telefonos.add(dt_Telefonos);
 		dt_Telefonos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		bt_edit_telefonos = new JButton("Editar");
 		bt_edit_telefonos.setMargin(new Insets(0, 0, 0, 0));
 		bt_edit_telefonos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bt_edit_telefonos.addActionListener(listener);
-		panel.add(bt_edit_telefonos, BorderLayout.EAST);
+		p_telefonos.add(bt_edit_telefonos, BorderLayout.EAST);
 
 		listaTelefonos = new JList<String>(mdl_telefonos);
 		listaTelefonos.setModel(mdl_telefonos);
@@ -395,27 +396,27 @@ public class MainGUI extends JFrame{
 		mdl_aficiones = new DefaultListModel<String>();
 		mdl_aficiones.addElement("                                                            ");
 		
-		panel_1 = new JPanel();
-		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.gridwidth = 2;
-		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
-		gbc_panel_1.fill = GridBagConstraints.BOTH;
-		gbc_panel_1.gridx = 0;
-		gbc_panel_1.gridy = 10;
-		detalles.add(panel_1, gbc_panel_1);
-		panel_1.setLayout(new BorderLayout(0, 0));
+		p_aficiones = new JPanel();
+		GridBagConstraints gbc_p_aficiones = new GridBagConstraints();
+		gbc_p_aficiones.gridwidth = 2;
+		gbc_p_aficiones.insets = new Insets(0, 0, 5, 0);
+		gbc_p_aficiones.fill = GridBagConstraints.BOTH;
+		gbc_p_aficiones.gridx = 0;
+		gbc_p_aficiones.gridy = 10;
+		detalles.add(p_aficiones, gbc_p_aficiones);
+		p_aficiones.setLayout(new BorderLayout(0, 0));
 		
 
 		dt_aficiones = new JLabel("Aficiones");
 		dt_aficiones.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(dt_aficiones);
+		p_aficiones.add(dt_aficiones);
 		dt_aficiones.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
 		bt_edit_aficiones = new JButton("Editar");
 		bt_edit_aficiones.setMargin(new Insets(0, 0, 0, 0));
 		bt_edit_aficiones.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bt_edit_aficiones.addActionListener(listener);
-		panel_1.add(bt_edit_aficiones, BorderLayout.EAST);
+		p_aficiones.add(bt_edit_aficiones, BorderLayout.EAST);
 
 		listaAficiones = new JList<String>(mdl_aficiones);
 		listaAficiones.setModel(mdl_aficiones);
@@ -431,6 +432,29 @@ public class MainGUI extends JFrame{
 		gbc_scrollAficiones.gridy = 11;
 		detalles.add(scrollAficiones, gbc_scrollAficiones);
 		listaAficiones.setVisibleRowCount(3);
+		
+		p_titulo = new JPanel();
+		zonaDetalles.add(p_titulo, BorderLayout.NORTH);
+		p_titulo.setLayout(new BorderLayout(0, 0));
+		
+		etiqueta2 = new JLabel("Contacto1");
+		etiqueta2.setIcon(new ImageIcon(MainGUI.class.getResource("/Resources/Images/app.png")));
+		etiqueta2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		p_titulo.add(etiqueta2);
+		
+		p_botones = new JPanel();
+		p_titulo.add(p_botones, BorderLayout.EAST);
+		
+		bt_edit = new JButton("Editar");
+		bt_edit.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bt_edit.addActionListener(listener);
+		p_botones.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		bt_delete = new JButton("Eliminar");
+		bt_delete.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bt_delete.addActionListener(listener);
+		p_botones.add(bt_delete);
+		p_botones.add(bt_edit);
 		
 		// -- Zona con lista de contactos --
 		JLabel etiqueta1 = new JLabel("CONTACTOS");
@@ -456,18 +480,23 @@ public class MainGUI extends JFrame{
 		
 		bt_anadir = new JButton("Nuevo Contacto");
 		bt_anadir.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		bt_anadir.addActionListener(listener);
 		zonaContactos.add(bt_anadir, BorderLayout.SOUTH);
 	}
 
-	public void actualizarListaContactos() {
+	public static void actualizarListaContactos() {
         mdl_contactos = DataManager.getContactos();
         listaContactos.setModel(mdl_contactos);
+		actualizarDetallesContacto();
     }
 	public static void actualizarDetallesContacto(){
+		if (listaContactos.getSelectedValue() == null) { return; }
 		IDcontacto = Integer.parseInt(listaContactos.getSelectedValue().split("\\|")[0]);
 		if(listaContactos.getSelectedValue() == null){ return; }
+		Logger.log("Actualizando detalles de contacto");
 		// Nombre
 		dt_nombre.setText(DataManager.getNombreContacto(IDcontacto));
+		etiqueta2.setText(dt_nombre.getText());
 		// Apellidos
 		dt_apellidos.setText(DataManager.getApellidosContacto(IDcontacto));
 		// Direccion

@@ -21,20 +21,22 @@ public class MainProgram {
 
         GUI();
 
-        Exit();
+        Logger.log("Programa iniciado");
 
     }
 
     
     
     private static void Init() {
+        Logger.log("Iniciando programa...");
+
         con = SQLiteCon.getConnection();
 
         boolean tablesOK = false;
         try {
             tablesOK = DatabaseManager.CheckTables();
         } catch (SQLException e) {
-            Logger.log("Error de SQL al comprobar las tablas");
+            Logger.log("Error de SQL al comprobar las tablas", true);
             Logger.log(e.getMessage());
         }
         if (!tablesOK) {
@@ -42,14 +44,14 @@ public class MainProgram {
             try {
                 DatabaseManager.DropAllTables();
             } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
-                Logger.log(e.getMessage());
+                Logger.log("Error al borrar las tablas", true);
+                Logger.log(e.getMessage(), true);
             }
             try {
                 DatabaseManager.CreateNewTables();
             } catch (SQLException e) {
-                Logger.log("Error de SQL al crear las tablas");
-                Logger.log(e.getMessage());
+                Logger.log("Error de SQL al crear las tablas", true);
+                Logger.log(e.getMessage(), true);
             }
             Logger.log("Tablas creadas correctamente");
         }
@@ -62,14 +64,10 @@ public class MainProgram {
                 try {
                     new MainGUI();
                 } catch (Exception e) {
-                    Logger.log("Error al crear la GUI");
+                    Logger.log("Error al crear la GUI", true);
                     Logger.log(e.getMessage());
                 }
             }
         });
-    }
-
-    private static void Exit() {
-    }
-    
+    }    
 }

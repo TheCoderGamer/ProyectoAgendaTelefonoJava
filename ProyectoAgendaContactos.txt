@@ -1,17 +1,18 @@
 ===== Siguiente cosa a hacer =====
-    boton añadir contacto 
-    editar que aficion/correo/telefono le pertenece a cada contacto
-    eliminar contacto
-    eliminar aficion/correo/contacto
+Optimizar y refactorizar
+
+ >> IDEAS OPTIMIZACION <<
+Reducir llamadas sql comprobando si el string esta vacio
+
+
 
 
 --- CONTACTOS ---
--Personas: ID, Nombre, Direccion, Notas, Aficiones, Correo, Telefono, TipoTel, FechaNac, Apellidos, Genero
--Empresas: ID, Nombre, Direccion, Notas, Aficiones, Correo, Telefono, TipoTel
--Mascotas: ID, Nombre, Direccion, Notas, Aficiones, FechaNac
+-Personas: ID, Nombre, Direccion, Notas, Aficiones, Correo, Telefono,  FechaNac, Apellidos, Genero
+-Empresas: ID, Nombre, Direccion, Notas, Correo, Telefono, 
+-Mascotas: ID, Nombre, Direccion, Notas, FechaNac
 
 Varias  por contacto: correo, telefono, aficiones
-
 
 
 
@@ -22,7 +23,7 @@ Varias  por contacto: correo, telefono, aficiones
 
 Contactos (IDcontacto, TipoContacto, Nombre, Direccion, Notas, Apellidos, Genero, FechaNac)
 Correos (IDcorreo, Correo)
-Telefonos (IDtelefono, Telefono, Prefijo, TipoTel)
+Telefonos (IDtelefono, Telefono)
 Aficiones (IDaficion, Aficion)
 
 ContactosAficiones (IDcontacto, IDaficion)
@@ -46,7 +47,7 @@ APELLIDOS VARCHAR (40),
 GENERO CHAR(1),
 FECHANAC CHAR(10));
 CREATE TABLE CORREOS( IDCORREO INTEGER PRIMARY KEY AUTOINCREMENT, CORREO VARCHAR(40));
-CREATE TABLE TELEFONOS (IDTELEFONO INTEGER PRIMARY KEY AUTOINCREMENT, TELEFONO NUMBER(10), PREFIJO NUMBER(2), TIPOTEL CHAR(1));
+CREATE TABLE TELEFONOS (IDTELEFONO INTEGER PRIMARY KEY AUTOINCREMENT, TELEFONO NUMBER(10));
 CREATE TABLE AFICIONES (IDAFICION INTEGER PRIMARY KEY AUTOINCREMENT, AFICION VARCHAR(20));
 CREATE TABLE CONTACTOSAFICIONES (IDCONTACTO NUMBER(4),
 IDAFICION NUMBER(4), 

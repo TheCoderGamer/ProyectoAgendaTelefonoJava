@@ -17,9 +17,39 @@ public class DataManager {
         Logger.log("Editando aficion: " + oldAficion + " por " + newAficion);
         DatabaseManager.updateSQL("UPDATE aficiones SET aficion = '" + newAficion + "' WHERE aficion = '" + oldAficion + "'");
     }
-    public static void deleteAficion(String aficion) {
-        Logger.log("Borrando aficion: " + aficion);
-        DatabaseManager.updateSQL("DELETE FROM aficiones WHERE aficion = '" + aficion + "'");
+    public static void deleteAficion(String oldData) {
+        Logger.log("Borrando aficion: " + oldData);
+        int idAficion = getIdByString("aficiones", "idaficion", "aficion" ,oldData);
+        DatabaseManager.updateSQL("DELETE FROM contactosaficiones WHERE idaficion = '" + idAficion + "'");
+        DatabaseManager.updateSQL("DELETE FROM aficiones WHERE idaficion = '" + idAficion + "'");
+    }
+    public static void insertCorreo(String newData) {
+        Logger.log("Insertando correo: " + newData);
+        DatabaseManager.updateSQL("INSERT INTO correos (correo) VALUES ('" + newData + "')");
+    }
+    public static void editCorreo(String edicion, String newData) {
+        Logger.log("Editando correo: " + edicion + " por " + newData);
+        DatabaseManager.updateSQL("UPDATE correos SET correo = '" + newData + "' WHERE correo = '" + edicion + "'");
+    }
+    public static void deleteCorreo(String oldData) {
+        Logger.log("Eliminando correo: " + oldData);
+        int idCorreo = getIdByString("correos", "idcorreo", "correo" ,oldData);
+        DatabaseManager.updateSQL("DELETE FROM contactoscorreos WHERE idcorreo = '" + idCorreo + "'");
+        DatabaseManager.updateSQL("DELETE FROM correos WHERE idcorreo = '" + idCorreo + "'");
+    }
+    public static void insertTelefono(String newData) {
+        Logger.log("Insertando telefono: " + newData);
+        DatabaseManager.updateSQL("INSERT INTO telefonos (telefono) VALUES ('" + newData + "')");
+    }
+    public static void editTelefono(String edicion, String newData) {
+        Logger.log("Editando telefono: " + edicion + " por " + newData);
+        DatabaseManager.updateSQL("UPDATE telefonos SET telefono = '" + newData + "' WHERE telefono = '" + edicion + "'");
+    }
+    public static void deleteTelefono(String oldData) {
+        Logger.log("Eliminando telefono: " + oldData);
+        int idTelefono = getIdByString("telefonos", "idtelefono", "telefono" ,oldData);
+        DatabaseManager.updateSQL("DELETE FROM contactostelefonos WHERE idtelefono = '" + idTelefono + "'");
+        DatabaseManager.updateSQL("DELETE FROM telefonos WHERE idtelefono = '" + idTelefono + "'");
     }
     
     public static DefaultListModel<String> getAficiones() {
@@ -46,7 +76,7 @@ public class DataManager {
         }
         return model;
     }
-
+    
     public static DefaultListModel<String> getCorreosContacto(Integer IDcontacto) {
         DefaultListModel<String> model = new DefaultListModel<String>();
         ResultSet rs = DatabaseManager.getSQL("select correo from correos b, contactoscorreos a where b.idcorreo = a.idcorreo AND a.idcontacto = " + IDcontacto + ";");
@@ -180,31 +210,6 @@ public class DataManager {
         return model;
     }
 
-    public static void insertCorreo(String newData) {
-        Logger.log("Insertando correo: " + newData);
-        DatabaseManager.updateSQL("INSERT INTO correos (correo) VALUES ('" + newData + "')");
-    }
-    public static void editCorreo(String edicion, String newData) {
-        Logger.log("Editando correo: " + edicion + " por " + newData);
-        DatabaseManager.updateSQL("UPDATE correos SET correo = '" + newData + "' WHERE correo = '" + edicion + "'");
-    }
-    public static void deleteCorreo(String oldData) {
-        Logger.log("Eliminando correo: " + oldData);
-        DatabaseManager.updateSQL("DELETE FROM correos WHERE correo = '" + oldData + "'");
-    }
-
-    public static void insertTelefono(String newData) {
-        Logger.log("Insertando telefono: " + newData);
-        DatabaseManager.updateSQL("INSERT INTO telefonos (telefono) VALUES ('" + newData + "')");
-    }
-    public static void editTelefono(String edicion, String newData) {
-        Logger.log("Editando telefono: " + edicion + " por " + newData);
-        DatabaseManager.updateSQL("UPDATE telefonos SET telefono = '" + newData + "' WHERE telefono = '" + edicion + "'");
-    }
-    public static void deleteTelefono(String oldData) {
-        Logger.log("Eliminando telefono: " + oldData);
-        DatabaseManager.updateSQL("DELETE FROM telefonos WHERE telefono = '" + oldData + "'");
-    }
     
     
     public static void insertarContactoAficion(Integer iDcontacto, String string) {
@@ -328,9 +333,9 @@ public class DataManager {
         }
     }
     
-    private static Integer getIdByString(String tabla, String nameID, String name , String text) {
+    private static Integer getIdByString(String tabla, String tablaNameID, String tablaNameData , String data) {
         Integer ID = 0;
-        String sql = "SELECT " + nameID + " FROM " + tabla + " WHERE " + name + " = '" + text + "'";
+        String sql = "SELECT " + tablaNameID + " FROM " + tabla + " WHERE " + tablaNameData + " = '" + data + "'";
         ResultSet rs = DatabaseManager.getSQL(sql);
         try {
             while (rs.next()) {
@@ -340,5 +345,86 @@ public class DataManager {
             Logger.log(e.getMessage());
         }
         return ID;
+    }
+    public static void addContact(
+        String nombre, 
+        String apellidos, 
+        String direccion,
+        String fechanac, 
+        String notas, 
+        String genero,
+        DefaultListModel<String> mdl_aficiones, 
+        DefaultListModel<String> mdl_correos,
+        DefaultListModel<String> mdl_telefonos) 
+        {
+            // Crear contacto con lo minimo
+            DatabaseManager.updateSQL("INSERT INTO contactos (nombre) VALUES ('" + nombre + "')");
+
+            // Obtener el ID del contacto
+            Integer idcontacto = getIdByString("Contactos", "IDcontacto", "nombre", nombre);
+
+            // Insertar los demas datos en el contacto
+            DatabaseManager.updateSQL("UPDATE contactos SET apellidos = '" + apellidos + "' WHERE IDcontacto = " + idcontacto);
+            DatabaseManager.updateSQL("UPDATE contactos SET direccion = '" + direccion + "' WHERE IDcontacto = " + idcontacto);
+            DatabaseManager.updateSQL("UPDATE contactos SET fechanac = '" + fechanac + "' WHERE IDcontacto = " + idcontacto);
+            DatabaseManager.updateSQL("UPDATE contactos SET notas = '" + notas + "' WHERE IDcontacto = " + idcontacto);
+            DatabaseManager.updateSQL("UPDATE contactos SET genero = '" + genero + "' WHERE IDcontacto = " + idcontacto);
+                       
+            for (int i = 0; i < mdl_aficiones.getSize(); i++) {
+                insertarContactoAficion(idcontacto, mdl_aficiones.get(i));
+            }
+            for (int i = 0; i < mdl_correos.getSize(); i++) {
+                insertarContactoCorreo(idcontacto, mdl_correos.get(i));
+            }
+            for (int i = 0; i < mdl_telefonos.getSize(); i++) {
+                insertarContactoTelefono(idcontacto, mdl_telefonos.get(i));
+            }
+            
+
+    }
+    public static void editContact(
+        int idcontacto,
+        String nombre, 
+        String apellidos, 
+        String direccion,
+        String fechanac, 
+        String notas, 
+        String genero,
+        DefaultListModel<String> mdl_aficiones, 
+        DefaultListModel<String> mdl_correos,
+        DefaultListModel<String> mdl_telefonos) 
+    {                   
+        // Actualizar los datos en el contacto
+        DatabaseManager.updateSQL("UPDATE contactos SET nombre = '" + nombre + "' WHERE IDcontacto = " + idcontacto);
+        DatabaseManager.updateSQL("UPDATE contactos SET apellidos = '" + apellidos + "' WHERE IDcontacto = " + idcontacto);
+        DatabaseManager.updateSQL("UPDATE contactos SET direccion = '" + direccion + "' WHERE IDcontacto = " + idcontacto);
+        DatabaseManager.updateSQL("UPDATE contactos SET fechanac = '" + fechanac + "' WHERE IDcontacto = " + idcontacto);
+        DatabaseManager.updateSQL("UPDATE contactos SET notas = '" + notas + "' WHERE IDcontacto = " + idcontacto);
+        DatabaseManager.updateSQL("UPDATE contactos SET genero = '" + genero + "' WHERE IDcontacto = " + idcontacto);
+                    
+        // Borrar todos las aficiones del contacto
+        DatabaseManager.updateSQL("DELETE FROM contactosaficiones WHERE idcontacto = " + idcontacto);
+        // Insertar las aficiones del contacto
+        for (int i = 0; i < mdl_aficiones.getSize(); i++) {
+            insertarContactoAficion(idcontacto, mdl_aficiones.get(i));
+        }
+        // Borrar todos los correos del contacto
+        DatabaseManager.updateSQL("DELETE FROM contactoscorreos WHERE idcontacto = " + idcontacto);
+        // Insertar los correos del contacto
+        for (int i = 0; i < mdl_correos.getSize(); i++) {
+            insertarContactoCorreo(idcontacto, mdl_correos.get(i));
+        }
+        // Borrar todos los telefonos del contacto
+        DatabaseManager.updateSQL("DELETE FROM contactostelefonos WHERE idcontacto = " + idcontacto);
+        // Insertar los telefonos del contacto
+        for (int i = 0; i < mdl_telefonos.getSize(); i++) {
+            insertarContactoTelefono(idcontacto, mdl_telefonos.get(i));
+        }
+    }
+    public static void deleteContact(Integer iDcontacto) {
+        DatabaseManager.updateSQL("DELETE FROM contactos WHERE IDcontacto = " + iDcontacto);
+        DatabaseManager.updateSQL("DELETE FROM contactosaficiones WHERE idcontacto = " + iDcontacto);
+        DatabaseManager.updateSQL("DELETE FROM contactoscorreos WHERE idcontacto = " + iDcontacto);
+        DatabaseManager.updateSQL("DELETE FROM contactostelefonos WHERE idcontacto = " + iDcontacto);
     }
 }

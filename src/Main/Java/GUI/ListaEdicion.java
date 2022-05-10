@@ -14,20 +14,23 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 
 import Main.Java.BBDD.DataManager;
+import javax.swing.JPanel;
 
 public class ListaEdicion extends JFrame{
 	
-    static String tipoEditor = "";
+    String tipoEditor = "";
     JFrame frame;
-    static DefaultListModel<String> mdl_edicion;
-    static JList<String> listaEdicion;
-    static JButton bt_anadir;
+    DefaultListModel<String> mdl_edicion;
+    JList<String> listaEdicion;
     private static Listeners listener;
-    private static JLabel etiqueta;
-    private static JScrollPane scrollPane;
+    private JLabel etiqueta;
+    private JScrollPane scrollPane;
+    private JPanel p_botones;
+    JButton bt_anadir;
+    JButton bt_delete;
 
 	public ListaEdicion(String tipoEditor) {
-        ListaEdicion.tipoEditor = tipoEditor;
+        this.tipoEditor = tipoEditor;
         listener = MainGUI.listener;
         frame = new JFrame();
 		frame.setVisible(true);
@@ -41,15 +44,7 @@ public class ListaEdicion extends JFrame{
         etiqueta.setHorizontalAlignment(SwingConstants.CENTER);
 		etiqueta.setHorizontalTextPosition(SwingConstants.CENTER);
 		etiqueta.setFont(new Font("Tahoma", Font.BOLD, 20));
-		frame.add(etiqueta, BorderLayout.NORTH);
-
-        // Boton añadir
-        bt_anadir = new JButton("Añadir");
-        bt_anadir.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        bt_anadir.setBackground(Color.WHITE);
-        bt_anadir.setForeground(Color.BLACK);
-        bt_anadir.addActionListener(listener);
-        frame.add(bt_anadir, BorderLayout.SOUTH);
+		frame.getContentPane().add(etiqueta, BorderLayout.NORTH);
 
         // Lista de aficiones
         actualizarModelo();
@@ -61,13 +56,26 @@ public class ListaEdicion extends JFrame{
 		listaEdicion.setBackground(new Color(240, 240, 240));
 		scrollPane = new JScrollPane(listaEdicion);
         listaEdicion.addMouseListener(listener);
-		frame.add(scrollPane);
+		frame.getContentPane().add(scrollPane);
+		
+		p_botones = new JPanel();
+		frame.getContentPane().add(p_botones, BorderLayout.SOUTH);
+		
+		bt_delete = new JButton("Eliminar");
+		bt_delete.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        bt_delete.addActionListener(listener);
+		p_botones.add(bt_delete);
+		
+		bt_anadir = new JButton("Añadir");
+		bt_anadir.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        bt_anadir.addActionListener(listener);
+		p_botones.add(bt_anadir);
 	}
     public void actualizarLista(){
         actualizarModelo();
         listaEdicion.setModel(mdl_edicion);
     }
-    public void actualizarModelo() {
+    private void actualizarModelo() {
         switch(tipoEditor) {
             case "Aficiones":
                 mdl_edicion = DataManager.getAficiones();
